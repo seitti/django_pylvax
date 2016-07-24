@@ -1,0 +1,21 @@
+<!doctype html>
+{% load blog_tags %}
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Starter</title>
+    <link rel="stylesheet" href="/static/css/stylesheet.css">
+</head>
+
+<body>
+    <div class="menu-list">
+        {% block menu_block %}{% endblock %}
+    </div>
+    <div class="blog-body">
+        {% block body_block %}{% endblock %}
+    </div>
+</body>
+
+</html>

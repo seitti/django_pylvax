@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load blog_tags %}
+
+{% block menu_block %}
+   {% generate_menu selected_post %}
+{% endblock %}
+
+{% block body_block %}
+    <div class="selected-post-content">
+        <h3>{{ selected_post.title }}</h3>
+        <i>{{ selected_post.created_date }}</i>
+        <p>{{ selected_post.text }}</p>
+        <a href="{% url 'home' %}" id="back-to-menu"><b> Back to home </b>
+    </div>
+{% endblock %}

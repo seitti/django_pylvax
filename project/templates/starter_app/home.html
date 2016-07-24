@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load blog_tags %}
+
+{% block menu_block %}
+   {% generate_menu %}
+{% endblock %}
+
+{% block body_block %}
+
+    <figure>
+        <img id="picture" src="http://blog.ittestsonline.com/wp-content/uploads/2015/04/djangopony.png"/>
+    </figure>
+
+    <h1>Hi Django!</h1>
+
+    <div>
+        {% for item in posts %}
+            <a href="{% url 'post' item.slug %}"><h3>{{ item.title }}</h3></a>
+            <i>{{ item.created_date }}</i>
+            <p>{{ item.text }}</p>
+            <a href="{% url 'post' item.slug %}" id="reading-more"><b>Read more</b>
+        {% endfor %}
+    </div>
+
+{% endblock %}

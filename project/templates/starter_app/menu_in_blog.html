@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block menu_block %}
+
+    <ul>
+        <form action="{% url 'home'%}">
+            <input id="menu-button" type="submit" value="Menu">
+        </form>
+        {% for item in posts %}
+            {% if item.slug == selected_post.slug %}
+                <li>
+                    <form action="{% url 'post' item.slug %}">
+                        <input id="selected-title" type="submit" value= "{{ item.title }}">
+                    </form>
+                </li>
+            {% else %}
+                <li>
+                    <form action="{% url 'post' item.slug %}">
+                        <input type="submit" value= "{{ item.title }}">
+                    </form>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}
